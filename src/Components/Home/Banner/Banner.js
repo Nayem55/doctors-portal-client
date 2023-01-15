@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <div>
       <div className="banner">
-        <div className="banner-text">
+        <div className="banner-text  lg:mr-16">
           <h1>A better life starts with a beautiful smile</h1>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting

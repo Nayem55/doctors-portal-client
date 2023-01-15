@@ -16,9 +16,9 @@ const Header = () => {
         </div>
             <div className={`navLinks ${open?"show" : "hide"}`}>
             <Link to='/home'>Home</Link>
-            <Link to='/about'>About</Link>
             <Link to='/appointment'>Appointment</Link>
             <Link to='/reviews'>Reviews</Link>
+            <Link to='/about'>About</Link>
             <Link to='/contact'>Contact Us</Link>
             <Link to='/login'>Login</Link>
             </div>
