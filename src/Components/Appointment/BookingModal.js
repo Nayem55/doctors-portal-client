@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import React from "react";
+import toast from 'react-hot-toast';
 
 const BookingModal = ({ treatment, selected ,setTreatment }) => {
   const handleSubmit=(e)=>{
@@ -64,6 +65,7 @@ const BookingModal = ({ treatment, selected ,setTreatment }) => {
             />
             <input
               type="submit"
+              onClick={()=>toast("Appointment Created Succesfully")}
               value="Submit"
               className="input input-bordered bg-secondary text-white hover:bg-primary mb-4 cursor-pointer"
             />
