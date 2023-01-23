@@ -7,7 +7,7 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import google from './google.png'
 
 
-const Login = () => {
+const Login = ({dark}) => {
   const { register, formState: {errors} , handleSubmit } = useForm();
   const [ signInWithEmailAndPassword, user, loading, error ] = useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <div className="h-[600px] flex justify-center items-center p-6 my-20">
       <div className="w-96 flex flex-col items-center border border-secondary px-7 py-12">
-        <h1 className="text-2xl text-center text-primary">Login</h1>
+        <h1 className="text-3xl text-center text-primary font-bold">Login</h1>
         <form className="w-full" onSubmit={handleSubmit(handleLogin)}>
           <div className="form-control w-full max-w-xs">
             <label className="label">
@@ -37,7 +37,7 @@ const Login = () => {
             </label>
             <input
               type="email"
-              className="input input-bordered bg-white border-secondary w-full max-w-xs"
+              className="input input-bordered bg-white text-secondary border-secondary w-full max-w-xs"
               {...register("email", {required:"Email address is required"})}
             />
             {errors.email && <p className="text-red-600">{errors.email?.message}</p>}
@@ -49,7 +49,7 @@ const Login = () => {
             </label>
             <input
               type="password"
-              className="input input-bordered bg-white border-secondary w-full max-w-xs "
+              className="input input-bordered bg-white text-secondary border-secondary w-full max-w-xs "
               {...register("password", {required:"Password is required" , minLength:{value:6 , message:'Password must contain atleast 6 characters'}})}
             />
             {errors.password && <p className="text-red-600">{errors.password?.message}</p>}
@@ -62,7 +62,7 @@ const Login = () => {
           </div>
           <input
             type="submit"
-            className=" btn btn-seondary text-white w-full max-w-xs mt-6 hover:bg-primary border-none"
+            className={`btn text-white w-full max-w-xs mt-6 hover:bg-primary border-none ${dark? "bg-primary" : "bg-secondary"}`}
             value="Login"
           />
           <p className="text-red-600 mt-2">{error?.message}</p>
@@ -74,7 +74,7 @@ const Login = () => {
           </p>
         </form>
            <div className="divider text-secondary">OR</div>
-            <button className="btn btn-outline btn-secondary w-full"> 
+            <button className={`btn btn-outline w-full ${dark? "btn-accent" : "btn-secondary" }`}> 
             <img src={google} className="w-8 mr-2" alt="" />
             CONTINUE WITH GOOGLE</button>
       </div>

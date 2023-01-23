@@ -4,13 +4,13 @@ import cavity from "../../../assets/images/cavity.png";
 import fluoride from "../../../assets/images/fluoride.png";
 import whitening from "../../../assets/images/whitening.png";
 
-const Services = () => {
+const Services = ({dark}) => {
   return (
     <div className="services">
       <h2 className="text-center text-primary font-bold text-2xl uppercase">
         Our services
       </h2>
-      <p className="text-center text-4xl text-secondary">Services We Provide</p>
+      <p className={`text-center text-4xl ${dark? "text-accent" : "text-secondary" }`}>Services We Provide</p>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-12 justify-items-center">
         <ServiceCard
           img={cavity}

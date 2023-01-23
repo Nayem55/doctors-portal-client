@@ -5,7 +5,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import  auth  from '../../firebase.init'
 import google from '../Login/google.png'
 
-const Signup = () => {
+const Signup = ({dark}) => {
   const { register, formState: { errors }, handleSubmit} = useForm();
   const [ createUserWithEmailAndPassword, user, loading, error ] = useCreateUserWithEmailAndPassword(auth);
   const navigqate = useNavigate();
@@ -26,7 +26,7 @@ const Signup = () => {
     <div className="pt-20 lg:pt-0">
       <div className="h-[600px] flex justify-center items-center p-6 my-20">
         <div className="w-96 flex flex-col items-center border border-secondary px-7 py-12">
-          <h1 className="text-2xl text-center text-primary">Signup</h1>
+          <h1 className="text-3xl text-center text-primary font-bold">Signup</h1>
           <form className="w-full" onSubmit={handleSubmit(handleSignup)}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
@@ -35,7 +35,7 @@ const Signup = () => {
               </label>
               <input
                 type="text"
-                className="input input-bordered bg-white border-secondary w-full max-w-xs"
+                className="input input-bordered bg-white text-secondary border-secondary w-full max-w-xs"
                 {...register("name", { required: "Name is required" })}
               />
               {errors.name && (
@@ -49,7 +49,7 @@ const Signup = () => {
               </label>
               <input
                 type="email"
-                className="input input-bordered bg-white border-secondary w-full max-w-xs"
+                className="input input-bordered bg-white text-secondary border-secondary w-full max-w-xs"
                 {...register("email", {
                   required: "Email address is required",
                 })}
@@ -65,7 +65,7 @@ const Signup = () => {
               </label>
               <input
                 type="password"
-                className="input input-bordered bg-white border-secondary w-full max-w-xs "
+                className="input input-bordered bg-white text-secondary border-secondary w-full max-w-xs "
                 {...register("password", {
                   required: "Password is required",
                   minLength: {
@@ -87,7 +87,7 @@ const Signup = () => {
             </div>
             <input
               type="submit"
-              className=" btn btn-seondary text-white w-full max-w-xs mt-6 hover:bg-primary hover:border-none"
+              className={`btn text-white w-full max-w-xs mt-6 hover:bg-primary border-none ${dark? "bg-primary" : "bg-secondary"}`}
               value="Sign up"
             />
                <p className="text-red-600 mt-2">{error?.message}</p>
@@ -100,10 +100,9 @@ const Signup = () => {
             </p>
           </form>
             <div className="divider text-secondary"> OR</div>
-            <button className="btn btn-outline btn-secondary w-full">
-                <img src={google} className="w-8 mr-2" alt="" />
-              CONTINUE WITH GOOGLE
-            </button>
+            <button className={`btn btn-outline w-full ${dark? "btn-accent" : "btn-secondary" }`}> 
+            <img src={google} className="w-8 mr-2" alt="" />
+            CONTINUE WITH GOOGLE</button>
         </div>
       </div>
     </div>

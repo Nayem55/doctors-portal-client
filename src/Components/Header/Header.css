@@ -8,6 +8,9 @@
     background-color: white;
     z-index: 20;
 }
+.dark-header{
+    background-color: rgb(25, 26, 46);
+}
 .logo{
     width: 180px;
     cursor: pointer;
@@ -15,11 +18,11 @@
 .navLinks{
     display: flex;
     transition: all .2s ease-in;
+    margin: 0 auto;
 }
 .navLinks a{
     padding: 10px;
     border-radius: 10px;
-    color: #3A4256;
     font-weight: bold;
     transition: all .2s ease-in;
 }
@@ -30,7 +33,9 @@
 .bar{
     display: none;
 }
-
+.mb-toggle{
+    display: none;
+}
 @media(max-width:992px){
     .header{
         padding: 10px;
@@ -43,6 +48,7 @@
     .navLinks{
         flex-direction: column;
         margin-top: 20px;
+        margin: 0;
     }
     .navLinks a:hover{
         width: 100vw;
@@ -52,6 +58,7 @@
         align-items: center;
         width: 100%;
         justify-content: space-between;
+        
     }
     .bar{
         display: block;
@@ -59,12 +66,18 @@
     }
     .show{
         position: relative;
-        right: 0;
+        left: 0;
     }
     .hide{
         position: absolute;
-        top: 100px;
-        right: -400px;
+        top: 90px;
+        left: -400px;
+    }
+    .toggle-btn{
+        display: none;
+    }
+    .mb-toggle{
+        display: block;
     }
  
 }

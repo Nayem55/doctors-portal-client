@@ -7,15 +7,15 @@ import HomeAppointment from "./HomeAppointment";
 import Testimonial from "./Testimonial";
 import HomeContact from "./HomeContact";
 import HomeTreatmentSection from "./HomeTreatmentSection";
-const Home = () => {
+const Home = ({dark}) => {
   return (
     <div className="home">
-      <Banner></Banner>
+      <Banner dark={dark}></Banner>
       <Info></Info>
-      <Services></Services>
-      <HomeTreatmentSection></HomeTreatmentSection>
+      <Services dark={dark}></Services>
+      <HomeTreatmentSection dark={dark}></HomeTreatmentSection>
       <HomeAppointment></HomeAppointment>
-      <Testimonial></Testimonial>
+      <Testimonial dark={dark}></Testimonial>
       <HomeContact></HomeContact>
     </div>
   );

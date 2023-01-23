@@ -10,14 +10,16 @@ import Signup from "./Components/Signup/Signup";
 import Dashboard from "./Components/Dashborad/Dashboard";
 import { Toaster } from "react-hot-toast";
 import PrivateRoute from "./PrivateRoute";
+import { useState } from "react";
 
 function App() {
+  const [dark , setDark] = useState(false); 
   return (
-    <div className="app">
-      <Header></Header>
+    <div className={`${dark?"dark":"light"}`}>
+      <Header dark={dark} setDark={setDark} ></Header>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/home" element={<Home />}></Route>
+        <Route path="/" element={<Home dark={dark}/>}></Route>
+        <Route path="/home" element={<Home dark={dark}/>}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route
           path="/appointment"
@@ -27,8 +29,8 @@ function App() {
             </PrivateRoute>
           }
         ></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/login" element={<Login dark={dark}/>}></Route>
+        <Route path="/signup" element={<Signup dark={dark} />}></Route>
         <Route
           path="/dashboard"
           element={

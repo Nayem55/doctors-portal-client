@@ -1,7 +1,7 @@
 import React from 'react';
 import treatment from "../../assets/images/treatment.png";
 
-const HomeTreatmentSection = () => {
+const HomeTreatmentSection = ({dark}) => {
     return (
         <div className="hero min-h-screen px-40 treatment ">
         <div className="hero-content flex-col lg:flex-row">
@@ -11,7 +11,7 @@ const HomeTreatmentSection = () => {
             alt=""
           />
           <div className="lg:ml-12">
-            <h1 className="text-3xl lg:text-5xl font-bold text-secondary">
+            <h1 className={`text-3xl lg:text-5xl font-bold ${dark? "text-accent" : "text-secondary" }`}>
               Exceptional Dental Care, on Your Terms
             </h1>
             <p className="py-6 ">

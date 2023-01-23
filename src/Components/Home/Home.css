@@ -14,7 +14,6 @@
 .banner-text h1{
     font-size: 40px;
     font-weight: bold;
-    color:#3A4256;
     margin-bottom: 10px;
 }
 .banner-text button{
@@ -58,7 +57,7 @@
 
 @media(max-width:992px){
     .banner{
-        margin-top: 90px;
+        margin-top: 85px;
         flex-direction: column-reverse;
         padding: 20px;
     }
